@@ -1,0 +1,33 @@
+ALGORITHM check-point-algo
+VAR
+   l : INTEGER ;
+   worldscount : INTEGER :=1;
+   sentencecount: INTEGER :=0;
+  
+   str : STRING ;
+   b : BOOLEAN := TRUE;
+BEGIN
+write ("write a sentence, which ends with a point")
+read(str)
+l:=length(str)-1 ;
+  IF ((str[l]:='.') and (str[0] <> ' ')) THEN
+       for i in range(0,l): 
+           WHILE (str[i] in ('a','e','i','o','u')) DO
+             vcount := vcount + 1;
+           END_WHILE
+           WHILE (str[i] =' ') DO
+             worldscount := worldscount + 1;
+           END_WHILE
+           WHILE (str[i] in ('a','b','c','d','e'...'v','w','x','y','z')) DO
+             sentencecount := sentencecount + 1;
+           END_WHILE
+           
+        write("The length of the sentence is : ",sentencecount);
+        write("The number of words in the sentence  is : ",worldscount);
+        write("The number of vowels in the sentence is : ",vcount);
+
+  
+  ELSE
+           write ("sentence wrong, plz write a sentence again which ends with a point")
+  END_IF
+END
